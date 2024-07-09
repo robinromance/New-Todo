@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Form</title>
+</head>
+<body>
+    <h2 style="padding-top: 2rem; text-align: center;"><i><u>Delete Confirmation</u></i></h2>
+    <div style="padding: 0.5rem; text-align: center; background-color: gray;">
+        <i style="color: white;">Are you sure you want to delete !</i><br>
+        <a style='text-decoration: none; padding: 0.3rem; background-color: white;' href="{% url "delete_view" form.id %}"> &#10004</a>
+        <a style='text-decoration: none; padding: 0.3rem; background-color: white;' href="{% url "home" %}">&#10006;</a> 
+    </div>
+</body>
+</html>

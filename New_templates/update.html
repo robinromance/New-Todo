@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Task</title>
+</head>
+<body>
+    <h2><i><u>Update Task &#10009;</i></u></i></h2>
+    <form action="{% url 'update_record' form.id %}" method="POST">
+        {% csrf_token %}
+            <label for="title"><i>Title :</i></label>
+            <input name="title" type="text" value="{{ form.Todo_title }}"><br><br>
+            <label for="description"><i>Description :</i></label>
+            <input name="description" type="text" value="{{ form.Todo_description }}"><br><br>
+            <label for="status"><i>Status :</i></label>
+            <input name="status" type="boolean" value="{{ form.Todo_status }}"><br><br>
+            <input style="text-decoration:none; border-style: none; padding: 0.5rem 3rem; background-color: blue; color: white;" type="submit" value="Submit">
+    </form>
+</body>
+</html>

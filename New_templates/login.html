@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <h2><i><u>Log In</u></i></h2>
+    <form style="background-color:cadetblue; max-width: max-content; padding: 1rem;text-align: end; border-radius: 5px;" action="" method="POST">
+        {% csrf_token %}
+        <label for="username">Username :</label>
+        <input style="padding: 0.5rem;" type="text" name="username" required><br><br>
+        <label for="email">Gmail :</label>
+        <input style="padding: 0.5rem;" type="email" name="email"><br><br>
+        <label for="password">Password :</label>
+        <input style="padding: 0.5rem;" type="password" name="password" required><br><br>
+        <input style="padding: 0.5rem; border-style: none; padding: 0.5rem 4.5rem; background-color:violet; color: white;" style="padding: 0.5rem 2rem; border-style: none;" type="submit" value="Log In"><br><br>
+    </form>
+    {% if error_message %}
+        <b>{{ error_message }}</b><br><br>
+        <a href="{% url 'sign_up' %}">Sign Up</a>
+    {% endif %}
+</body>
+</html>

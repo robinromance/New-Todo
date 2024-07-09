@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+</head>
+<body>
+    <h2><i><u>Todo List &#10004;</u></i></h2><br>
+
+    <a style="text-decoration: none; padding: 0.5rem 3.5rem; background-color: blue; color: white;" href="{% url "logout" %}">Logout</a>
+
+    <table style="margin-top: 1rem;">
+        <tr style="background-color: #ffbaff;">
+            <th style="padding: 1rem"><i>Title</i></th>
+            <th><i>Description</i></th>
+            <th><i>Completed</i></th>
+            <th></th>
+            <th></th>
+        </tr>
+        {% for x in todo %}
+        <tr style="background-color: #fba;">
+            <td style="padding: 1rem"><i>{{ x.Todo_title }}</i></td>
+            <td><i>{{ x.Todo_description }}</i></td>
+            <td>{% if x.Todo_status == True %}
+                <b><s>Completed</s></b>
+                {% else %} <b><i>Incomplete</i></b>
+                {% endif %}</td>
+            <td><a style="text-decoration: none; font-size: 35px;" href="{% url "delete_page" x.id %}">&#10007;</a></td>
+            <td><a style="text-decoration: none; font-size: 35px;" href="{% url "update_view" x.id %}">&#10009;</a></td>
+        </tr>
+        {% endfor %}
+    </table><br>
+
+    <a style="text-decoration: none; padding: 0.5rem 3rem; background-color: blue; color: white;" href="{% url "add_view" %}">Add Tasks</a>
+</body>
+</html>
